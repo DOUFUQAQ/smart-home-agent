@@ -1,0 +1,18 @@
+Ref,Part,Value,Package,Qty,Estimated_CNY,Note
+U1,ESP32-DevKitC,ESP32-WROOM-32,Module,1,35,Main MCU
+U2,Regulator,AMS1117-3.3,SOT-223,1,1.5,Optional if only 5V input
+J1,Power Input,12V_IN,TerminalBlock_2P,1,2,External power input
+J2,Relay Out CH1,LIGHT_OUT,TerminalBlock_2P,1,2,Low-voltage load recommended
+J3,Relay Out CH2,FAN_OUT,TerminalBlock_2P,1,2,Low-voltage load recommended
+K1,Relay Module CH1,5V Relay,Header_1x3,1,8,Use external relay module
+K2,Relay Module CH2,5V Relay,Header_1x3,1,8,Use external relay module
+U3,DHT22,DHT22,Header_1x3,1,15,Temperature humidity sensor
+U4,MQ-2 Module,MQ2,Header_1x4,1,12,Gas sensor module
+SW1,Button,TACT_SWITCH,SW_PUSH_6mm,1,0.5,Manual light toggle
+D1,Status LED,Green 3mm,LED_THT,1,0.3,System status
+R1,Current Limit,1k,0603,1,0.1,LED resistor
+R2,Pull-up,10k,0603,1,0.1,Button pull-up (optional)
+C1,Bypass Cap,100nF,0603,2,0.1,Supply decoupling
+C2,Bulk Cap,10uF,1206,2,0.3,Supply decoupling
+J4,UART Header,TX/RX/GND,Header_1x4,1,1,Debug programming
+

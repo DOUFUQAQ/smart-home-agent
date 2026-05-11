@@ -1,0 +1,19 @@
+(kicad_sch
+  (version 20231120)
+  (generator "eeschema")
+  (uuid "f5a7f8c9-a17e-432f-bf5a-67e6c80f4a89")
+  (paper "A4")
+  (title_block
+    (title "Smart Home ESP32 Main Board")
+    (date "2026-05-09")
+    (rev "v1.0")
+    (company "Graduation Project")
+    (comment 1 "No Raspberry Pi Architecture")
+    (comment 2 "ESP32 + DHT22 + MQ2 + Relay")
+  )
+  (lib_symbols)
+  (sheet_instances
+    (path "/" (page "1"))
+  )
+)
+
