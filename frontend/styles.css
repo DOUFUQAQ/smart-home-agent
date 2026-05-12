@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+  font-family: "Microsoft YaHei", Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f4f6fb;
+  color: #1f2937;
+}
+
+.header {
+  background: #1d4ed8;
+  color: #fff;
+  padding: 20px 24px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.header p {
+  margin: 6px 0 0;
+  opacity: 0.9;
+}
+
+.container {
+  padding: 20px;
+  display: grid;
+  gap: 16px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.row.wrap {
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.stack {
+  display: grid;
+  gap: 8px;
+}
+
+input,
+select,
+button {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  font-size: 14px;
+}
+
+button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1e40af;
+}
+
+button.secondary {
+  background: #475569;
+  margin-top: 10px;
+}
+
+button.secondary:hover {
+  background: #334155;
+}
+
+.command-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.command-chip {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+.command-chip:hover {
+  background: #dbeafe;
+}
+
+.list {
+  margin-top: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 8px;
+  max-height: 240px;
+  overflow-y: auto;
+  background: #fcfdff;
+}
+
+.item {
+  border-bottom: 1px dashed #e2e8f0;
+  padding: 8px 0;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item-actions {
+  margin-top: 6px;
+  display: flex;
+  gap: 8px;
+}
+
+.item-actions button {
+  padding: 6px 8px;
+  font-size: 13px;
+}
+
+.result {
+  background: #0f172a;
+  color: #d1fae5;
+  min-height: 120px;
+  border-radius: 8px;
+  padding: 10px;
+  overflow-x: auto;
+}
+
+.message {
+  min-height: 28px;
+  color: #0f766e;
+}
+
+.hint {
+  margin: 8px 0 0;
+  color: #64748b;
+  font-size: 13px;
+}

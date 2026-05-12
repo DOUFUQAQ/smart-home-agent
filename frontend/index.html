@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>智能家居交互演示系统</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1>基于大模型的智能家居交互演示系统</h1>
+      <p>设备管理、环境监测、告警展示与自然语言控制</p>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h2>后端连接与演示数据</h2>
+        <div class="row">
+          <label for="apiBase">后端地址</label>
+          <input id="apiBase" value="http://127.0.0.1:8000" />
+          <button id="saveBaseBtn">保存并连接</button>
+        </div>
+        <div class="row wrap">
+          <button id="seedDemoBtn">一键加载演示数据</button>
+          <button id="resetDemoBtn" class="secondary">清空演示数据</button>
+        </div>
+        <p class="hint">默认后端地址：`http://127.0.0.1:8000`</p>
+      </section>
+
+      <section class="card">
+        <h2>演示命令</h2>
+        <div id="demoCommands" class="command-grid"></div>
+      </section>
+
+      <section class="grid-2">
+        <div class="card">
+          <h2>设备管理</h2>
+          <form id="createDeviceForm" class="stack">
+            <input id="deviceName" placeholder="设备名称，例如：客厅主灯" required />
+            <select id="deviceType">
+              <option value="light">灯光 light</option>
+              <option value="socket">插座 socket</option>
+              <option value="sensor">传感器 sensor</option>
+              <option value="other">其他 other</option>
+            </select>
+            <input id="deviceLocation" placeholder="位置，例如：客厅" value="lab" />
+            <button type="submit">新增设备</button>
+          </form>
+          <button id="refreshDevicesBtn" class="secondary">刷新设备列表</button>
+          <div id="devicesList" class="list"></div>
+        </div>
+
+        <div class="card">
+          <h2>传感器数据上报</h2>
+          <form id="readingForm" class="stack">
+            <select id="readingDeviceId" required></select>
+            <input id="temperature" type="number" step="0.1" placeholder="温度 °C" />
+            <input id="humidity" type="number" step="0.1" placeholder="湿度 %" />
+            <input id="gasPpm" type="number" step="0.1" placeholder="气体浓度 ppm" />
+            <button type="submit">上报数据</button>
+          </form>
+          <button id="refreshAlertsBtn" class="secondary">刷新告警</button>
+          <div id="alertsList" class="list"></div>
+        </div>
+      </section>
+
+      <section class="grid-2">
+        <div class="card">
+          <h2>大模型指令解析</h2>
+          <form id="parseForm" class="stack">
+            <input
+              id="parseText"
+              placeholder="例如：如果温度超过30度就打开风扇"
+              required
+            />
+            <button type="submit">解析指令</button>
+          </form>
+          <pre id="parseResult" class="result"></pre>
+        </div>
+
+        <div class="card">
+          <h2>控制执行</h2>
+          <form id="executeForm" class="stack">
+            <input id="executeText" placeholder="例如：打开客厅主灯" required />
+            <button type="submit">执行指令</button>
+          </form>
+          <pre id="executeResult" class="result"></pre>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>传感器历史数据</h2>
+        <button id="refreshReadingsBtn" class="secondary">刷新历史数据</button>
+        <div id="readingsList" class="list"></div>
+      </section>
+
+      <section class="card">
+        <h2>系统消息</h2>
+        <div id="messageBox" class="message"></div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
