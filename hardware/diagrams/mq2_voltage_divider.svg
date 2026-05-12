@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="620" viewBox="0 0 1000 620">
+  <defs>
+    <style>
+      .title{font:700 30px "Microsoft YaHei",Arial,sans-serif;fill:#172033}
+      .box-title{font:700 19px "Microsoft YaHei",Arial,sans-serif;fill:#172033}
+      .text{font:15px "Microsoft YaHei",Arial,sans-serif;fill:#26364d}
+      .small{font:13px "Microsoft YaHei",Arial,sans-serif;fill:#43536a}
+      .pin{font:700 15px Consolas,monospace;fill:#0f172a}
+      .box{fill:#fff;stroke:#26364d;stroke-width:2;rx:8}
+      .sensor{fill:#f0fdf4;stroke:#238636;stroke-width:2.5;rx:8}
+      .esp{fill:#eef7ff;stroke:#1f6fb2;stroke-width:2.5;rx:8}
+      .wire{stroke:#2563eb;stroke-width:4;fill:none}
+      .gnd{stroke:#111827;stroke-width:4;fill:none}
+      .p5{stroke:#ef4444;stroke-width:4;fill:none}
+      .res{stroke:#334155;stroke-width:4;fill:none}
+    </style>
+  </defs>
+  <rect width="1000" height="620" fill="#f6f8fb"/>
+  <text x="48" y="55" class="title">MQ-2 模拟输出分压保护图</text>
+  <text x="50" y="84" class="small">MQ-2 使用 5V 供电时，AO 可能超过 ESP32 ADC 安全输入范围，建议分压到 3.3V 以下。</text>
+
+  <rect x="70" y="160" width="210" height="210" class="sensor"/>
+  <text x="118" y="198" class="box-title">MQ-2 模块</text>
+  <text x="112" y="245" class="pin">VCC</text>
+  <text x="112" y="285" class="pin">GND</text>
+  <text x="112" y="325" class="pin">AO</text>
+
+  <rect x="730" y="180" width="210" height="170" class="esp"/>
+  <text x="774" y="218" class="box-title">ESP32 ADC</text>
+  <text x="784" y="270" class="pin">GPIO34</text>
+  <text x="784" y="312" class="pin">GND</text>
+
+  <path class="p5" d="M280 245 L410 245"/>
+  <text x="315" y="232" class="small">5V/VIN</text>
+
+  <path class="gnd" d="M280 285 L410 285 L410 455 L835 455 L835 350"/>
+  <text x="430" y="448" class="small">公共 GND</text>
+
+  <path class="wire" d="M280 325 L390 325"/>
+  <text x="304" y="312" class="small">AO 最高可能接近 5V</text>
+
+  <path class="res" d="M390 325 l18 -14 l18 28 l18 -28 l18 28 l18 -28 l18 28 l18 -14"/>
+  <text x="424" y="292" class="box-title">R1 = 10k</text>
+
+  <circle cx="535" cy="325" r="7" fill="#2563eb"/>
+  <path class="wire" d="M535 325 L730 270"/>
+  <text x="575" y="300" class="small">分压后约 0-3.3V</text>
+
+  <path class="res" d="M535 325 l0 22 l-14 18 l28 18 l-28 18 l28 18 l-28 18 l14 18"/>
+  <text x="560" y="405" class="box-title">R2 = 20k</text>
+  <path class="gnd" d="M535 455 L835 455"/>
+
+  <rect x="80" y="455" width="810" height="90" fill="#fff" stroke="#94a3b8" stroke-width="1.5" rx="8"/>
+  <text x="108" y="488" class="box-title">计算关系</text>
+  <text x="108" y="518" class="text">GPIO34 电压 = AO × R2 / (R1 + R2)。当 AO = 5V、R1 = 10k、R2 = 20k 时，GPIO34 约为 3.33V。</text>
+</svg>

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="760" viewBox="0 0 1180 760">
+  <defs>
+    <style>
+      .title{font:700 30px "Microsoft YaHei",Arial,sans-serif;fill:#172033}
+      .box-title{font:700 19px "Microsoft YaHei",Arial,sans-serif;fill:#172033}
+      .text{font:15px "Microsoft YaHei",Arial,sans-serif;fill:#26364d}
+      .small{font:13px "Microsoft YaHei",Arial,sans-serif;fill:#43536a}
+      .pin{font:700 15px Consolas,monospace;fill:#0f172a}
+      .esp{fill:#eef7ff;stroke:#1f6fb2;stroke-width:3;rx:10}
+      .part{fill:#fff;stroke:#334155;stroke-width:2;rx:8}
+      .warn{fill:#fff7ed;stroke:#c2410c;stroke-width:2;rx:8}
+      .sig{stroke:#2563eb;stroke-width:4;fill:none}
+      .gnd{stroke:#111827;stroke-width:4;fill:none}
+      .p5{stroke:#ef4444;stroke-width:4;fill:none}
+      .res{stroke:#334155;stroke-width:4;fill:none}
+    </style>
+  </defs>
+
+  <rect width="1180" height="760" fill="#f6f8fb"/>
+  <text x="48" y="55" class="title">按键、蜂鸣器、裸 LED 具体接线图</text>
+  <text x="50" y="84" class="small">KH-6X6X5H 轻触开关不接 VCC；裸 LED 必须串联限流电阻；低电平触发蜂鸣器空闲保持 HIGH。</text>
+
+  <rect x="455" y="135" width="270" height="460" class="esp"/>
+  <text x="525" y="174" class="box-title">ESP32 DevKitC</text>
+  <text x="502" y="230" class="pin">GPIO18</text>
+  <text x="502" y="285" class="pin">GPIO19</text>
+  <text x="502" y="340" class="pin">GPIO25</text>
+  <text x="502" y="395" class="pin">GPIO2</text>
+  <text x="502" y="450" class="pin">5V/VIN</text>
+  <text x="502" y="505" class="pin">GND</text>
+
+  <rect x="70" y="145" width="260" height="120" class="part"/>
+  <text x="98" y="180" class="box-title">按键 1：本地功能键</text>
+  <text x="102" y="212" class="text">A 侧脚 -> GPIO18</text>
+  <text x="102" y="238" class="text">B 侧脚 -> GND</text>
+
+  <rect x="70" y="305" width="260" height="120" class="part"/>
+  <text x="92" y="340" class="box-title">按键 2：风扇开关键</text>
+  <text x="102" y="372" class="text">A 侧脚 -> GPIO19</text>
+  <text x="102" y="398" class="text">B 侧脚 -> GND</text>
+
+  <rect x="805" y="145" width="285" height="145" class="part"/>
+  <text x="835" y="180" class="box-title">无源蜂鸣器模块</text>
+  <text x="838" y="214" class="text">SIG/IN -> GPIO25</text>
+  <text x="838" y="240" class="text">VCC -> 5V/VIN</text>
+  <text x="838" y="266" class="text">GND -> GND</text>
+
+  <rect x="805" y="350" width="285" height="155" class="part"/>
+  <text x="850" y="385" class="box-title">裸 LED 指示灯</text>
+  <text x="838" y="420" class="text">GPIO2 -> 电阻 -> 长脚</text>
+  <text x="838" y="446" class="text">短脚 -> GND</text>
+  <text x="838" y="472" class="small">电阻推荐 220Ω/330Ω/1kΩ</text>
+
+  <path class="sig" d="M330 212 C390 212 390 230 455 230"/>
+  <path class="gnd" d="M330 238 C370 238 370 505 455 505"/>
+  <path class="sig" d="M330 372 C390 372 390 285 455 285"/>
+  <path class="gnd" d="M330 398 C385 398 385 505 455 505"/>
+
+  <path class="sig" d="M725 340 C770 340 770 214 805 214"/>
+  <path class="p5" d="M725 450 C770 450 770 240 805 240"/>
+  <path class="gnd" d="M725 505 C770 505 770 266 805 266"/>
+
+  <path class="sig" d="M725 395 C760 395 760 420 805 420"/>
+  <path class="res" d="M760 420 l18 -12 l18 24 l18 -24 l18 24 l18 -24 l18 24 l18 -12"/>
+  <text x="742" y="452" class="small">限流电阻</text>
+  <path class="gnd" d="M725 505 C770 505 770 446 805 446"/>
+
+  <rect x="76" y="535" width="1010" height="120" class="warn"/>
+  <text x="106" y="570" class="box-title">实物接线提醒</text>
+  <text x="106" y="602" class="text">1. 轻触开关不要接 3V3/VCC，只需要一端接 GPIO，另一端接 GND，依靠 ESP32 内部上拉。</text>
+  <text x="106" y="630" class="text">2. 裸 LED 长脚是正极，短脚是负极；没有电阻会让 LED 或 GPIO 承受过大电流。</text>
+  <text x="106" y="658" class="text">3. 蜂鸣器模块若标注只能 3.3V 供电，就把 VCC 接 3V3；信号脚仍接 GPIO25。</text>
+</svg>

@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <defs>
+    <style>
+      .title{font:700 30px "Microsoft YaHei",Arial,sans-serif;fill:#172033}
+      .box-title{font:700 19px "Microsoft YaHei",Arial,sans-serif;fill:#172033}
+      .text{font:15px "Microsoft YaHei",Arial,sans-serif;fill:#26364d}
+      .small{font:13px "Microsoft YaHei",Arial,sans-serif;fill:#43536a}
+      .pin{font:700 14px Consolas,monospace;fill:#0f172a}
+      .box{fill:#fff;stroke:#26364d;stroke-width:2;rx:8}
+      .relay{fill:#fff7ed;stroke:#c2410c;stroke-width:3;rx:10}
+      .esp{fill:#eef7ff;stroke:#1f6fb2;stroke-width:3;rx:10}
+      .load{fill:#fef2f2;stroke:#b91c1c;stroke-width:2;rx:8}
+      .sig{stroke:#2563eb;stroke-width:3;fill:none}
+      .p12{stroke:#dc2626;stroke-width:5;fill:none}
+      .gnd{stroke:#111827;stroke-width:4;fill:none}
+      .p5{stroke:#ef4444;stroke-width:3;fill:none}
+    </style>
+  </defs>
+  <rect width="1200" height="720" fill="#f6f8fb"/>
+  <text x="50" y="55" class="title">继电器与 12V 两脚风扇接线图</text>
+  <text x="52" y="84" class="small">当前只使用 CH2 控制两脚风扇；CH1 预留，12V 负载侧只接继电器触点 COM/NO。</text>
+
+  <rect x="70" y="160" width="240" height="230" class="esp"/>
+  <text x="126" y="198" class="box-title">ESP32 DevKitC</text>
+  <text x="112" y="245" class="pin">GPIO26 -> IN1</text>
+  <text x="112" y="285" class="pin">GPIO27 -> IN2</text>
+  <text x="112" y="325" class="pin">5V/VIN -> VCC</text>
+  <text x="112" y="365" class="pin">GND -> GND</text>
+
+  <rect x="450" y="125" width="300" height="320" class="relay"/>
+  <text x="508" y="165" class="box-title">2 路 5V 继电器模块</text>
+  <text x="492" y="212" class="pin">IN1</text>
+  <text x="492" y="252" class="pin">IN2</text>
+  <text x="492" y="292" class="pin">VCC</text>
+  <text x="492" y="332" class="pin">GND</text>
+  <line x1="610" y1="194" x2="610" y2="365" stroke="#c2410c" stroke-width="2"/>
+  <text x="640" y="212" class="pin">CH1 COM</text>
+  <text x="640" y="252" class="pin">CH1 NO (预留)</text>
+  <text x="640" y="322" class="pin">CH2 COM</text>
+  <text x="640" y="362" class="pin">CH2 NO</text>
+
+  <rect x="890" y="125" width="240" height="95" class="load"/>
+  <text x="956" y="162" class="box-title">CH1 预留</text>
+  <text x="918" y="190" class="text">当前不接 12V 负载</text>
+
+  <rect x="890" y="310" width="240" height="95" class="load"/>
+  <text x="936" y="347" class="box-title">12V 两脚小风扇</text>
+  <text x="918" y="375" class="text">正极接 CH2 NO，负极回电源负极</text>
+
+  <rect x="890" y="520" width="240" height="100" class="load"/>
+  <text x="930" y="557" class="box-title">12V 2A 适配器</text>
+  <text x="938" y="586" class="text">+12V / -12V</text>
+
+  <path class="sig" d="M310 240 C375 240 375 212 450 212"/>
+  <path class="sig" d="M310 280 C375 280 375 252 450 252"/>
+  <path class="p5" d="M310 320 C375 320 375 292 450 292"/>
+  <path class="gnd" d="M310 360 C375 360 375 332 450 332"/>
+
+  <path class="p12" d="M1010 455 L700 455 L700 322"/>
+  <path class="p12" d="M1010 455 L700 455 L700 322"/>
+  <path class="p12" d="M750 362 C810 362 810 357 890 357"/>
+  <path class="gnd" d="M1010 620 L1010 650 L850 650 L850 392 L890 392"/>
+  <path class="gnd" d="M850 172 L890 172" opacity="0"/>
+  <path class="gnd" d="M850 650 L850 205 L890 205"/>
+
+  <rect x="78" y="500" width="660" height="95" fill="#fff" stroke="#94a3b8" stroke-width="1.5" rx="8"/>
+  <text x="106" y="532" class="box-title">关键理解</text>
+  <text x="106" y="562" class="text">1. GPIO26/GPIO27 只控制继电器线圈，不承受 12V 负载电流。</text>
+  <text x="106" y="588" class="text">2. 当前只有 CH2 在用：12V 正极经过 COM -> NO -> 风扇正极，风扇负极回电源负极。</text>
+</svg>
